@@ -12,23 +12,32 @@ export class UsersService {
         {
             id: 2,
             name: 'naigel',
-            email: 'danaigel@gmail.con'
+            email: 'danaigel@gmail.com'
         },
         {
             id: 3,
             name: 'tino',
-            email: 'tinillo@gmail.con'
+            email: 'tinillo@gmail.com'
         },
         {
             id: 4,
             name: 'atzel',
-            email: 'atzelcarni@gmail.con'
+            email: 'atzelcarni@gmail.com'
+        },
+        {
+            id:5,
+            name:'make',
+            email:'make@gmail.com'
         }
     ]
 
 
     getUsers() {
         return this.users
+    }
+
+    getUserID(){
+        return this.users.findIndex
     }
 
 }

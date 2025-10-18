@@ -42,4 +42,8 @@ export class UsersService {
         return user;
     }
 
+    deleteUsersById(id: number){
+        const user = this.users
+    }
+
 }

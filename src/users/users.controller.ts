@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Delete, Get, Param } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 
@@ -14,6 +14,11 @@ constructor(private readonly userService:UsersService){}
     @Get(':id')
     getUserById(@Param('id') id: string){
         return this.userService.getUserById(Number(id))
+    }
+
+    @Delete(':id')
+        deleteUserById(@Param('id') id: string ){
+
     }
 
 }

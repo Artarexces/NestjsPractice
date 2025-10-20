@@ -1,18 +1,40 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
-import { TasksService } from "./tasks.service";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from "@nestjs/common";
+import { TaskService } from "./tasks.service";
 
 @Controller('tasks')
 export class TaskController {
-    constructor(private readonly tasksService:TasksService){}
+    constructor(private readonly taskService:TaskService){}
 
     @Get()
     getTasks(){
-        return this.tasksService.getTasks()
+        return this.taskService.getTasks()
     }
 
+    @Get(':id')
+    getTaskById(@Param('id') id: string){
+        return this.taskService.getTaskById(Number(id))
+    }
 
     @Post()
     createTask(@Body() task: any){
-        return this.tasksService.createTask(task)
+        return this.taskService.createTask(task)
     }
+
+
+    @Put(':id')
+    updateTask(@Param('id') id: string, @Body() updatedTaks: any){
+        return this.taskService.updateTask(Number(id), updatedTaks)
+    }
+
+    @Patch(':id')
+    patchTask(@Param('id') id: string, @Body() updatedTaks: any){
+        return this.taskService.patchTask(Number(id), updatedTaks)
+    }
+
+
+    @Delete(':id')
+    deleteTask(@Param('id') id: string){
+        return this.taskService.deleteTask(Number(id))
+    }
+    
 }

@@ -1,12 +1,16 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 
-
+export interface User {
+    id: number,
+    name: string,
+    email: string
+}
 
 @Injectable()
 export class UserService {
 
-    private users: any[] = [ ]
+    private users: User[] = [ ]
 
 
     getUsers() {

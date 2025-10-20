@@ -1,10 +1,10 @@
-import { Controller, Delete, Get, Param } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { UserService } from './users.service';
 
 
 @Controller('users')
 export class UsersController {
-constructor(private readonly userService:UsersService){}
+constructor(private readonly userService:UserService){}
 
     @Get()
     getUsers(){
@@ -14,6 +14,11 @@ constructor(private readonly userService:UsersService){}
     @Get(':id')
     getUserById(@Param('id') id: string){
         return this.userService.getUserById(Number(id))
+    }
+
+    @Post()
+    createUser(@Body() user: any){
+        return this.userService.createUser(user)
     }
 
     @Delete(':id')

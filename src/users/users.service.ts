@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
-export class UsersService {
+export class UserService {
 
     private users = [
         {
@@ -36,13 +36,20 @@ export class UsersService {
         return this.users
     }
 
-    getUserById(id: number){
+    getUserById(id: number) {
         const user = this.users.find((u) => u.id === id)
         if(!user) throw new NotFoundException(`Usuario con id ${id} no encontrado`)
         return user;
     }
 
-    deleteUsersById(id: number){
+    createUser(user: any) {
+        this.users.push(user)
+        return user
+
+    }
+
+
+    deleteUsersById(id: number) {
         const user = this.users.find((u)=> u.id === id)
         if(!user) throw new NotFoundException(`Usuario con id ${id} no encontrado`)
 

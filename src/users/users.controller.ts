@@ -18,7 +18,7 @@ constructor(private readonly userService:UsersService){}
 
     @Delete(':id')
         deleteUserById(@Param('id') id: string ){
-            
+            return this.userService.deleteUsersById(Number(id))
     }
 
 }

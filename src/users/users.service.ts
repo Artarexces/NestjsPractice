@@ -43,7 +43,15 @@ export class UsersService {
     }
 
     deleteUsersById(id: number){
-        const user = this.users
+        const user = this.users.find((u)=> u.id === id)
+        if(!user) throw new NotFoundException(`Usuario con id ${id} no encontrado`)
+
+            this.users = this.users.filter(u => u.id !== id);
+
+            return{
+                message: `Usuario con ID ${id} eliminado correctamente`,
+                deltedUser: user,
+            }
     }
 
 }

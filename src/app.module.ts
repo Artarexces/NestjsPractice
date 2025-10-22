@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TasksModule } from './tasks/tasks.module';
-import { ProjectsModule } from './projects/projects.module';
+import { ProductsModule } from './products/products.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { HellowController } from './hellow/hellow.controller';
@@ -8,7 +8,7 @@ import { HellowController } from './hellow/hellow.controller';
 
 
 @Module({
-  imports: [TasksModule, ProjectsModule, AuthModule, UsersModule],
+  imports: [TasksModule, ProductsModule, AuthModule, UsersModule],
   controllers: [HellowController]
 })
 export class AppModule {}

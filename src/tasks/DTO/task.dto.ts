@@ -4,7 +4,7 @@ export interface Task{
     status: boolean
 }
 
-export interface CreateTaskDTO{
+export interface CreateTask{
     title: string,
     status: boolean
 }

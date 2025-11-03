@@ -1,16 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { createUsers } from './DTO/create-user.dto';
 
-
-export interface User {
-    id: number,
-    name: string,
-    email: string
-}
 
 @Injectable()
 export class UserService {
 
-    private users: User[] = [ ]
+    private users: createUsers[] = [ ]
 
 
     getUsers() {

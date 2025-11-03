@@ -4,3 +4,9 @@ export interface Products {
     price: number,
     stock: boolean
 }
+
+export interface CreateProducts {
+    name: string,
+    price: number,
+    stock: boolean
+}

@@ -1,12 +1,30 @@
-export interface Products {
-    id: number,
-    name: string,
-    price: number,
+import { IsNumber, IsString, IsBoolean } from "class-validator"
+
+export class Products {
+    
+    @IsNumber()
+    id: number
+
+    @IsString()
+    name: string
+
+    @IsNumber()
+    price: number
+
+    @IsBoolean()
     stock: boolean
+
 }
 
-export interface CreateProducts {
-    name: string,
-    price: number,
+export class CreateProducts {
+    
+    @IsString()
+    name: string
+
+    @IsNumber()
+    price: number
+
+    @IsBoolean()
     stock: boolean
+    
 }

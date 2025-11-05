@@ -1,10 +1,23 @@
-export interface Users {
-    id: number,
-    name: string,
+import { IsString, IsNumber } from "class-validator"
+
+export class Users {
+    
+    @IsNumber()
+    id: number
+
+    @IsString()
+    name: string
+    
+    @IsString()
     email: string
 }
 
-export interface createUsers {
-    name: string,
+export class createUsers {
+    
+    @IsString()
+    name: string
+
+    @IsString()
     email: string
+    
 }

@@ -1,10 +1,24 @@
-export interface Task{
-    id: number,
-    title: string,
+import { IsString, IsNumber, IsBoolean } from "class-validator"
+
+
+export class Task{
+
+    @IsNumber()
+    id: number
+
+    @IsString()
+    title: string
+
+    @IsBoolean()
     status: boolean
+
 }
 
-export interface CreateTask{
-    title: string,
+export class CreateTask{
+
+    @IsString()
+    title: string
+
+    @IsString()
     status: boolean
 }

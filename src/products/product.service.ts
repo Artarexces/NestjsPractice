@@ -4,15 +4,15 @@ import { CreateProducts, Products } from './DTO/product.dto';
 @Injectable()
 export class ProductService {
 
-    private product: Products[] = []
+    private products: Products[] = []
     private currentID = 1;
 
     getProducts(){
-        return this.product
+        return this.products
     }
 
     getProductsById(id: Number){
-        const product = this.product.find((p)=> p.id === id)
+        const product = this.products.find((p)=> p.id === id)
             if(!product) throw new NotFoundException(`Tarea con id ${id} no encontrada`)
             return product
     }
@@ -22,23 +22,44 @@ export class ProductService {
             id: this.currentID++,
             ... product
         }
-        this.product.push(newProduct)
+        this.products.push(newProduct)
         return newProduct;
     }
 
-        updateTask(id: number, updateProduct: any){
-        const product = this.product.find(p => p.id === id)
+    updateTask(id: number, updateProduct: any){
+    const product = this.products.find(p => p.id === id)
         if(!product) throw new NotFoundException(`producto con id ${id} no encontrado`) 
 
         const newProduct = {
             ...product,
             ...updateProduct,
         }
-        this.product = this.product.map(p => (p.id === id ? newProduct : id ))
+        this.products = this.products.map(p => (p.id === id ? newProduct : id ))
         return { 
             message: `Producto con id ${id} actualizado correctamente`, 
             updateProduct: newProduct,
         }
     }
 
+
+    patchProduct(id: number, partialProduct: any){
+        const product = this.products.find(p => p.id === id)
+        if(!product) throw new NotFoundException(`Producto con id ${id} no encontrado`) 
+
+        Object.assign(product, partialProduct)
+        return { 
+            message: `Producto con id ${id} actualizado correctamente`, 
+            updateTask: product,
+        }
+    }
+
+    deleteProduct(id: number){
+        const product = this.products.find((p)=> p.id === id)
+        if(!product) throw new NotFoundException(`Producto con id ${id} no encontrado`)
+            this.products.filter(p=> p.id !== id)
+        return {
+            message: `Producto con id ${id} eliminado correctamente`,
+            deletedProduct: product
+        }
+    }
 }

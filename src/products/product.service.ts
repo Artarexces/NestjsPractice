@@ -27,7 +27,7 @@ export class ProductService {
         return newProduct;
     }
 
-    updateTask(id: number, updateProduct: any){
+    updateProduct(id: number, updateProduct: any){
     const product = this.products.find(p => p.id === id)
         if(!product) throw new NotFoundException(`producto con id ${id} no encontrado`) 
 

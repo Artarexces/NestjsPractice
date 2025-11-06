@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { createUsers, Users } from './DTO/create-user.dto';
+import { createUsers } from './DTO/create-user.dto';
+import { Users } from './DTO/user.dto';
 
 
 @Injectable()

@@ -1,6 +1,5 @@
 import { IsString, IsNumber, IsBoolean } from "class-validator"
 
-
 export class Task{
 
     @IsNumber()
@@ -14,11 +13,3 @@ export class Task{
 
 }
 
-export class CreateTask{
-
-    @IsString()
-    title: string
-
-    @IsString()
-    status: boolean
-}

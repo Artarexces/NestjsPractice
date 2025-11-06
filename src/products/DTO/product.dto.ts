@@ -15,16 +15,3 @@ export class Products {
     stock: boolean
 
 }
-
-export class CreateProducts {
-    
-    @IsString()
-    name: string
-
-    @IsNumber()
-    price: number
-
-    @IsBoolean()
-    stock: boolean
-    
-}

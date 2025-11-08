@@ -12,3 +12,6 @@ export class Users {
     email: string
     
 }
+
+
+//MEJORA, AGREGAR UNA CONTRASEÑA CON SU VALIDADOR DE IsPassword

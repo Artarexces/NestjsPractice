@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProducts } from './DTO/create-products.dto';
 import { updateProduct } from './DTO/updateProduct.dto';
@@ -25,12 +25,11 @@ export class ProductController {
     }
 
     @Put()
-    updateProduct(@Body() product: updateProduct){
-        return 
+    @UsePipes(new ValidationPipe())
+    updateProduct(@Param("id",ParseIntPipe)id: number,@Body() product: updateProduct ){
+        return this.productService.updateProduct(id,product)
 
     }
-
-///// ACA LO DEJASTE CULIAU ///////// ↑↑↑↑↑↑ Hay que ver por que da error cuando pasamos el dto y espera 2 argumentos
 
 
     @Delete()

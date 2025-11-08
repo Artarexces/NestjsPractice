@@ -26,7 +26,7 @@ export class ProductController {
 
     @Put()
     updateProduct(@Body() product: updateProduct){
-        return
+        return 
 
     }
 

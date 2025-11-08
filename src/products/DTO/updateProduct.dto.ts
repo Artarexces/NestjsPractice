@@ -3,7 +3,7 @@ import { IsNumber, IsString, IsBoolean } from "class-validator"
 export class updateProduct {
     
     @IsNumber()
-    id: number
+    id?: number
 
     @IsString()
     name?: string

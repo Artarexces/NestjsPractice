@@ -1,11 +1,13 @@
-import { IsString, IsNumber, IsBoolean } from "class-validator"
+import { IsString, IsNumber, IsBoolean, IsNotEmpty } from "class-validator"
 
 export class CreateProducts {
     
     @IsString()
+    @IsNotEmpty()
     name: string
 
     @IsNumber()
+    @IsNotEmpty()
     price: number
 
     @IsBoolean()

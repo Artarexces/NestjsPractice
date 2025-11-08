@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsEmail } from "class-validator"
+import { IsString, IsNumber, IsEmail, IsNotEmpty } from "class-validator"
 
 export class Users {
     
@@ -6,9 +6,12 @@ export class Users {
     id: number
 
     @IsString()
+    @IsNotEmpty()
     name: string
     
     @IsEmail()
+    @IsString()
+    @IsNotEmpty()
     email: string
     
 }

@@ -22,4 +22,3 @@ export class Users {
 }
 
 
-//MEJORA, AGREGAR UNA CONTRASEÑA CON SU VALIDADOR DE IsPassword

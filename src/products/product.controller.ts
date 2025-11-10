@@ -13,7 +13,7 @@ export class ProductController {
     }
 
     @Get(":id")
-    getProductsById(@Param('id') id: string){
+    getProductsById(@Param('id') id: String){
         return this.productService.getProductsById(Number(id))
     }
 
@@ -24,16 +24,16 @@ export class ProductController {
         return this.productService.createProducts(product);
     }
 
-    @Put()
+    @Put(":id")
     @UsePipes(new ValidationPipe())
-    updateProduct(@Param("id",ParseIntPipe)id: number,@Body() product: updateProduct ){
-        return this.productService.updateProduct(id,product)
+    updateProduct(@Param("id")id: String,@Body() product: updateProduct){
+        return this.productService.updateProduct(Number(id),product)
 
     }
 
 
-    @Delete()
-    deleteProducts(){
-        
+    @Delete(":id")
+    deleteProducts(@Param('id')id: String){
+        return this.productService.deleteProduct(Number(id))
     }
 }

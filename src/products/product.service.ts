@@ -14,7 +14,7 @@ export class ProductService {
 
     getProductsById(id: Number){
         const product = this.products.find((p)=> p.id === id)
-            if(!product) throw new NotFoundException(`Tarea con id ${id} no encontrada`)
+            if(!product) throw new NotFoundException(`Producto con id ${id} no encontrada`)
             return product
     }
 
@@ -43,7 +43,7 @@ export class ProductService {
     }
 
 
-    patchProduct(id: number, partialProduct: any){
+    patchProduct(id: number, partialProduct: any ){
         const product = this.products.find(p => p.id === id)
         if(!product) throw new NotFoundException(`Producto con id ${id} no encontrado`) 
 
@@ -55,7 +55,7 @@ export class ProductService {
     }
 
     deleteProduct(id: number){
-        const product = this.products.find((p)=> p.id === id)
+        const product = this.products.find(p=> p.id === id)
         if(!product) throw new NotFoundException(`Producto con id ${id} no encontrado`)
             this.products.filter(p=> p.id !== id)
         return {

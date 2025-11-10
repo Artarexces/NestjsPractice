@@ -17,4 +17,3 @@ export class createUsers {
     password: string
 }
 
-//MEJORA, AGREGAR UNA CONTRASEÑA CON SU VALIDADOR DE IsPassword

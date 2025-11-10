@@ -14,7 +14,7 @@ export class createUsers {
     @IsString()
     @IsNotEmpty()
     @MinLength(6)
-    passsword: string
+    password: string
 }
 
 //MEJORA, AGREGAR UNA CONTRASEÑA CON SU VALIDADOR DE IsPassword

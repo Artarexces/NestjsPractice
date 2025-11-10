@@ -1,9 +1,10 @@
-import { IsString, IsNumber, IsBoolean, IsNotEmpty } from "class-validator"
+import { IsString, IsNumber, IsBoolean, IsNotEmpty, MinLength } from "class-validator"
 
 export class CreateProducts {
     
     @IsString()
     @IsNotEmpty()
+    @MinLength(5)
     name: string
 
     @IsNumber()

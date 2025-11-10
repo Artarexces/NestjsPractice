@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsBoolean } from "class-validator"
+import { IsString, IsNumber, IsBoolean, IsNotEmpty, MinLength } from "class-validator"
 
 export class Task{
 
@@ -6,6 +6,8 @@ export class Task{
     id: number
 
     @IsString()
+    @IsNotEmpty()
+    @MinLength(4)
     title: string
 
     @IsBoolean()

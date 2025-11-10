@@ -1,4 +1,4 @@
-import { IsNumber, IsString, IsBoolean } from "class-validator"
+import { IsNumber, IsString, IsBoolean, IsNotEmpty, MinLength } from "class-validator"
 
 export class Products {
     
@@ -6,9 +6,12 @@ export class Products {
     id: number
 
     @IsString()
+    @IsNotEmpty()
+    @MinLength(5)
     name: string
 
     @IsNumber()
+    @IsNotEmpty()
     price: number
 
     @IsBoolean()

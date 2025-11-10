@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UserService } from './users.service';
 import { createUsers } from './DTO/create-user.dto';
 
@@ -19,11 +19,13 @@ constructor(private readonly userService:UserService){}
 
     @Post()
     @UsePipes(new ValidationPipe())
+    @HttpCode(201)
     createUser(@Body() user: createUsers){
         return this.userService.createUser(user)
     }
 
     @Delete(':id')
+    @HttpCode(410)
         deleteUserById(@Param('id') id: string ){
             return this.userService.deleteUsersById(Number(id))
     }

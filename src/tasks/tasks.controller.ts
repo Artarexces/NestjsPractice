@@ -7,11 +7,13 @@ export class TaskController {
     constructor(private readonly taskService:TaskService){}
 
     @Get()
+    @HttpCode(200)
     getTasks(){
         return this.taskService.getTasks()
     }
 
     @Get(':id')
+    @HttpCode(200)
     getTaskById(@Param('id') id: string){
         return this.taskService.getTaskById(Number(id))
     }

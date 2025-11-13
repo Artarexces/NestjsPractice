@@ -8,11 +8,13 @@ export class ProductController {
     constructor(private readonly productService: ProductService){}
 
     @Get()
+    @HttpCode(200)
     getProducts(){
         return this.productService.getProducts()
     }
 
     @Get(":id")
+    @HttpCode(200)
     getProductsById(@Param('id') id: String){
         return this.productService.getProductsById(Number(id))
     }
@@ -26,8 +28,8 @@ export class ProductController {
     }
 
     @Put(":id")
-    @HttpCode(214)
     @UsePipes(new ValidationPipe())
+    @HttpCode(214)
     updateProduct(@Param("id")id: String,@Body() product: updateProduct){
         return this.productService.updateProduct(Number(id),product)
 
